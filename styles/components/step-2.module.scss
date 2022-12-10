@@ -46,6 +46,48 @@
         border-bottom-left-radius: 2px;
 
     }
+    @media only screen and (min-width:778px){
+        .step-2{
+            top: calc(15%);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 18px;
+            /* identical to box height */
+            
+            text-align: center;
+            color: white;
+            white-space: nowrap;
+            
+    }
+        .step-bar{
+            left: 43%;
+            top:18.3%;
+            width:14%;
+            
+            background-color: rgba($color: lightgray, $alpha: 0.5);
+            height: 7px;
+            position: absolute;
+            
+            justify-content: center;
+            display: flex;
+            border-radius: 2px;
+            align-items: center;
+        }
+        .step-bar::after{
+            content: "";
+            width:35%;
+            position: absolute;
+            left:0;
+            top:0;
+            height:100%;
+            background-color: rgba($color: white, $alpha: 1.0);
+            //opacity: 0.1;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+    
+        }
+        
+    }
 
 
 }
