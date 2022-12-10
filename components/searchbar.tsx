@@ -1,4 +1,4 @@
-import styles from "styles/components/search-bar.module.scss";
+import styles from "./styles/components/search-bar.module.scss";
 import React, { useState } from "react";
 const SearchBar: React.FC = () => {
   const [value, setValue] = useState("");
