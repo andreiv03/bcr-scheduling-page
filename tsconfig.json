@@ -25,10 +25,9 @@
     "moduleResolution": "Node",
     "paths": {
       "components/*": ["components/*"],
-      "context/*": ["context/*"],
-      "data/*": ["data/*"],
       "pages/*": ["pages/*"],
-      "styles/*": ["styles/*"]
+      "styles/*": ["styles/*"],
+      "utils/*": ["utils/*"]
     },
     "resolveJsonModule": true,
     "rootDir": ".",
