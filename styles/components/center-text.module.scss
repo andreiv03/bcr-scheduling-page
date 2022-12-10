@@ -26,10 +26,15 @@ font-size: 18px;
 @media only screen and (min-width:778px){
         .header{
     width: 100%;
-    left: 86.5%;
+    left:50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     top: calc(30%);
     font-size: 44px;
     word-spacing: 0.5px;
+    border-left:25%;
+    border-right:25%;
         }
 
         .header-description {
@@ -42,6 +47,7 @@ font-size: 18px;
             justify-content: center;
             text-align: center;
                 }
+                
         
     }
 
