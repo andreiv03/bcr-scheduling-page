@@ -26,6 +26,7 @@
     "paths": {
       "components/*": ["components/*"],
       "context/*": ["context/*"],
+      "data/*": ["data/*"],
       "pages/*": ["pages/*"],
       "styles/*": ["styles/*"]
     },
@@ -42,6 +43,12 @@
     "allowJs": true,
     "checkJs": true,
     "maxNodeModuleJsDepth": 0,
+
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
      
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -57,5 +64,5 @@
     "skipLibCheck": false
   },
   "exclude": ["./node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }
