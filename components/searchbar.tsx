@@ -1,5 +1,6 @@
 import styles from "styles/components/search-bar.module.scss";
 import React, { useState } from "react";
+import { AiOutlineSearch } from "react-icons/ai";
 const SearchBar: React.FC = () => {
   const [value, setValue] = useState("");
   function show(e: React.ChangeEvent<HTMLInputElement>) {
@@ -19,6 +20,7 @@ const SearchBar: React.FC = () => {
           onChange={show}
         />
       </div>
+<AiOutlineSearch className={styles["search-loop"]}/>
     </main>
   );
 };

@@ -1,4 +1,5 @@
 import CenterText from "components/center-text";
+import FooterLogo from "components/footer-logo";
 import PageHeader from "components/page-header";
 import SearchBar from "components/searchbar";
 import Step2 from "components/step2";
@@ -11,6 +12,7 @@ const Home = () => {
       <Step2 />
       <CenterText />
       <SearchBar />
+      <FooterLogo/>
     </div>
   );
 };
