@@ -1,7 +1,20 @@
+import CenterText from "components/center-text";
+import FooterLogo from "components/footer-logo";
+import PageHeader from "components/page-header";
+import SearchBar from "components/searchbar";
+import Step2 from "components/step2";
 import styles from "styles/pages/home.module.scss";
 
 const Home = () => {
-  return <div className={styles["page"]}>test test test</div>;
+  return (
+    <div className={styles["page"]}>
+      <PageHeader />
+      <Step2 />
+      <CenterText />
+      <SearchBar />
+      <FooterLogo/>
+    </div>
+  );
 };
 
 export default Home;

@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { HelmetProvider } from "react-helmet-async";
 
-import "styles/globals.scss";
+import "styles/global.scss";
 import styles from "styles/components/layout.module.scss";
 
 const App = ({ Component, pageProps }: AppProps) => {
