@@ -1,4 +1,4 @@
-.search-bar,.search-bar-moved{
+.search-bar,.search-bar-moved,.search-bar-step3{
     color: white;
     position: absolute;
     width: 92%;
@@ -18,7 +18,7 @@
     top:calc(18%);
 }
 
-.input-bar,.input-bar-moved{
+.input-bar,.input-bar-moved,.input-bar-step3{
     top:73%;
     width:100%;
     
@@ -32,27 +32,34 @@
     
     
 }
+.search-bar-step3{
+    top: calc(47%);
+}
+.input-bar-step3{
+    top:calc(52%);
+}
 .input-bar-moved{
     top:22%;
-    width:88%;
+    width:100%;
     justify-content: center;
     display: flex;
     align-items: center;
     text-align: center;
-    left:6%;
-    border-radius: 19px;
 }
 
 
-.input-type{
+.input-type,.input-type-step3{
     width:92%;
     height: 52px;
     justify-content: center;
     text-align: center;
     transition: all 0.5s ease-in-out;
 }
+.input-type-step3{
+    top:calc(40%);
+}
 
-.search-loop,.search-loop-moved{
+.search-loop,.search-loop-moved,.search-loop-step3{
     top:74.7%;
     width:10%;
     left:80%;
@@ -67,6 +74,10 @@
 }
 .search-loop-moved{
     top:23.5%;
+}
+.search-loop-step3{
+    top:calc(53.3%);
+    left:82%;
 }
 .animation {
     animation: moveUp 1s ease-in-out infinite;
