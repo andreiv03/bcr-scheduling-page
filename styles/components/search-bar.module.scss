@@ -1,4 +1,4 @@
-.search-bar{
+.search-bar,.search-bar-moved{
     color: white;
     position: absolute;
     width: 92%;
@@ -14,8 +14,11 @@
     font-size: 18px;
     
 }
+.search-bar-moved{
+    top:calc(18%);
+}
 
-.input-bar{
+.input-bar,.input-bar-moved{
     top:73%;
     width:100%;
     
@@ -27,19 +30,29 @@
     display: flex;
     align-items: center;
     
+    
 }
-.animation {
-    animation: moveUp 1s ease-in-out infinite;
+.input-bar-moved{
+    top:22%;
+    width:88%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    left:6%;
+    border-radius: 19px;
 }
+
 
 .input-type{
     width:92%;
     height: 52px;
     justify-content: center;
     text-align: center;
+    transition: all 0.5s ease-in-out;
 }
 
-.search-loop{
+.search-loop,.search-loop-moved{
     top:74.7%;
     width:10%;
     left:80%;
@@ -51,6 +64,14 @@
     justify-content: center;
     display: flex;
     align-items: center;
+}
+.search-loop-moved{
+    top:23.5%;
+}
+.animation {
+    animation: moveUp 1s ease-in-out infinite;
+    animation-iteration-count: 1;
+    background-color: rgba($color: white, $alpha: 1);
 }
 @media only screen and (min-width:778px){
     .search-bar{
@@ -80,12 +101,13 @@
         display: flex;
         align-items: center;
         border-radius: 19px;
-        transition: all 0.5s ease-in-out;
-        &:hover {
-            transform: scale(1.2);
-          }
-          animation: my-animation 2s linear infinite;
+        // transition: all 0.5s ease-in-out;
+        // &:hover {
+        //     transform: scale(1.2);
+        //   }
+        //   animation: my-animation 2s linear infinite;
     }
+    
     
     .input-type{
         width:42%;

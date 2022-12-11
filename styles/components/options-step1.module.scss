@@ -1,0 +1,59 @@
+    
+    
+.padding{
+    
+    
+    .option,.option1,.option2,.option3,.option4,.option5{
+
+        background-color: rgba($color: white, $alpha: 1);
+    height: 42px;
+    position: absolute;
+    
+    display: flex;
+    border-radius: 19px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 400;
+    word-spacing: -0.5px;
+    text-align: left;
+    top:73%;
+    width:80%;
+    left:9%;
+    
+    
+
+    
+    
+}
+.option{
+    top:48%;
+}
+.option1{
+    top:54%;
+}
+.option2{
+    top:60%;
+}
+.option3{
+    top:66%;
+}
+.option4{
+    top:72%;
+}
+.option5{
+    top:78%;
+}
+}    
+.smart-button{
+    box-sizing: border-box;
+
+position: absolute;
+width: 191px;
+height: 35px;
+left: 93px;
+top:86%;
+border-color: white;
+color: white;
+border-style:groove; 
+}

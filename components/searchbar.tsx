@@ -7,31 +7,22 @@ const SearchBar: React.FC = () => {
   function show(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(value);
     setValue(e!.target!.value);
-    setPosition(true);
     console.log(position)
   }
   return (
-    <main className={styles["title-message"]}>
-     <p className={styles["search-bar"]}>Caută unitatea:</p> 
-     { position ?<div className={styles["input-bar"]}>
-        <input
-          className={styles["input-type"]}
+    <main className={styles["title-message"]} >
+      <p className={position ? styles["search-bar-moved"]:styles["search-bar"]}>Caută unitatea:</p> 
+      <div className={position ? styles["input-bar-moved"] : styles["input-bar"]}>
+         <input
+          className={styles["input-type-mpve"]}
           placeholder="Nume unitate / Adresa / Zona"
           type="text"
           value={value}
           onChange={show}
+          onClick={() => setPosition(true)}
         />
-      </div> :<div className={styles["input-bar"]}>
-        <input
-          className={styles["input-type"]}
-          placeholder="Nume unitate / Adresa / Zona"
-          type="text"
-          value={value}
-          onChange={show}
-        />
-      </div>}
-<AiOutlineSearch className={styles["search-loop"]}/>
-    </main>
+      </div>
+      <AiOutlineSearch className={position ? styles["search-loop-moved"] : styles["search-loop"]}/></main>
   );
 };
 
