@@ -2,8 +2,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { HelmetProvider } from "react-helmet-async";
 
-import "styles/global.scss";
-import styles from "styles/components/layout.module.scss";
+import "styles/globals.scss";
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -15,10 +14,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         />
         <title>pITcasso</title>
       </Head>
-
-      <div className={styles["app"]}>
-        <Component {...pageProps} />
-      </div>
+      <Component {...pageProps} />
     </HelmetProvider>
   );
 };

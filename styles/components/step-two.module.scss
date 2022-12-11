@@ -1,5 +1,5 @@
 .step_two {
-  padding: 3rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   width: 100%;
   margin: 0 auto;
   transition: 300ms ease;
@@ -114,7 +114,7 @@
 
           h4 {
             position: relative;
-            color: var(--foreground);
+            color: var(--accent);
             font-size: 0.75rem;
             font-weight: 500;
 
@@ -130,7 +130,7 @@
                 width: 0.3rem;
                 height: 0.3rem;
                 border-radius: 50%;
-                background-color: var(--foreground);
+                background-color: var(--accent);
               }
             }
           }
@@ -166,13 +166,13 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 475px) {
   .step_two {
-    max-width: 768px;
+    max-width: 600px;
 
     .hero_section {
       text-align: center;
-      gap: 3rem;
+      gap: 1rem;
 
       h1 {
         font-size: 2rem;

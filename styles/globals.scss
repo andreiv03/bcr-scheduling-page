@@ -1,7 +1,10 @@
 :root {
-  --foreground: #29417A;
+  --foreground: #21416c;
   --background: #fafafa;
-  --accent: #376AE2;
+
+  --accent: #376ae2;
+  --light-accent: #5c7999;
+  --green: #10c76b;
 }
 
 *,
@@ -14,21 +17,19 @@
 
 html,
 body,
-button {
-  color: var(--foreground);
+button,
+input {
+  color: var(--background);
   font-family: "Poppins", sans-serif;
   font-size: 16px;
 }
 
-button {
+button,
+input {
   background: none;
   border: none;
   outline: none;
 }
 
-body {
-  background-color: var(--background);
-}
-
 // Poppins
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");

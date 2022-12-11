@@ -9,14 +9,15 @@ import styles from "styles/components/step-two.module.scss";
 import Mapbox from "components/mapbox.component";
 
 const UnitOption: React.FC<{
+  incrementStep: () => void;
   onChangeUnit: (unit: Unit) => void;
   unit: Unit;
-}> = ({ onChangeUnit, unit }) => {
+}> = ({ incrementStep, onChangeUnit, unit }) => {
   return (
     <div
       className={styles["unit"]}
       key={uuidv4()}
-      onClick={() => onChangeUnit(unit)}
+      onClick={() => { onChangeUnit(unit), incrementStep() }}
     >
       <div className={styles["content"]}>
         <div className={styles["top_section"]}>
@@ -36,8 +37,9 @@ const UnitOption: React.FC<{
 };
 
 const StepTwo: React.FC<{
+  incrementStep: () => void;
   onChangeUnit: (unit: Unit) => void;
-}> = ({ onChangeUnit }) => {
+}> = ({ incrementStep, onChangeUnit }) => {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [isHeroSectionHidden, setIsHeroSectionHidden] = useState(false);
   const [isAnimationFinished, setIsAnimationFinished] = useState(false);
@@ -126,6 +128,7 @@ const StepTwo: React.FC<{
                   .map((unit) => (
                     <UnitOption
                       key={uuidv4()}
+                      incrementStep={incrementStep}
                       onChangeUnit={onChangeUnit}
                       unit={unit}
                     />
@@ -138,6 +141,7 @@ const StepTwo: React.FC<{
                   .map((unit) => (
                     <UnitOption
                       key={uuidv4()}
+                      incrementStep={incrementStep}
                       onChangeUnit={onChangeUnit}
                       unit={unit}
                     />
