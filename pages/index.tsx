@@ -9,6 +9,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import StepOne from "components/step-one.component";
 import StepFour from "components/step-four.component";
 import StepFive from "components/step-five.component";
+import StepThree from "components/step-three.component";
 
 export interface FormData {
   email: string;
@@ -90,7 +91,7 @@ const Home = () => {
             animate={{ opacity: 1, x: 0, transition: { duration: 0.3, delay: 0.3 } }}
             exit={{ opacity: 0, x: 100, transition: { duration: 0.3 } }}
           >
-            
+            <StepThree />
           </motion.div>
         )}
       </AnimatePresence>
