@@ -1,0 +1,39 @@
+:root {
+    --foreground: #29417A;
+    //--background: #fafafa;
+    --background: #f0f0f0;
+    --accent: #376AE2;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body,
+  button {
+    color: var(--foreground);
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    overflow: hidden;
+  }
+  
+  button,
+  input {
+    background: none;
+    border: none;
+    outline: none;
+  }
+  
+  body {
+    background: #29417A;
+    background: linear-gradient(to top, #29417A 0%, #376AE2 44%);
+    height:100vh;
+  }
+  
+  // Poppins
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');

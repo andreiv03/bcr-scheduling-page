@@ -1,0 +1,121 @@
+.search-bar{
+    color: white;
+    position: absolute;
+    width: 92%;
+    left: 52%;
+    transform: translateX(-50%);
+    top: calc(68%);
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    word-spacing: -0.5px;
+    font-weight: 500;
+    font-size: 18px;
+    
+}
+
+.input-bar{
+    top:73%;
+    width:100%;
+    
+    background-color: rgba($color: white, $alpha: 1);
+    height: 54px;
+    position: absolute;
+    
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    
+}
+.animation {
+    animation: moveUp 1s ease-in-out infinite;
+}
+
+.input-type{
+    width:92%;
+    height: 52px;
+    justify-content: center;
+    text-align: center;
+}
+
+.search-loop{
+    top:74.7%;
+    width:10%;
+    left:80%;
+    
+    color: rgba($color: #5b72a8, $alpha: 1);
+    height: 30px;
+    position: absolute;
+    
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+@media only screen and (min-width:778px){
+    .search-bar{
+        width: 92%;
+        left: 82%;
+        transform: translateX(-50%);
+        top: calc(67%);
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: 700;
+        word-spacing: -0.5px;
+        font-weight: 500;
+        font-size: 18px;
+        
+    }
+    .input-bar{
+        top:72%;
+        width:28.5%;
+        left:36%;
+        
+        background-color: rgba($color: white, $alpha: 1);
+        height: 54px;
+        position: absolute;
+        
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        border-radius: 19px;
+        transition: all 0.5s ease-in-out;
+        &:hover {
+            transform: scale(1.2);
+          }
+          animation: my-animation 2s linear infinite;
+    }
+    
+    .input-type{
+        width:42%;
+        height: 52px;
+        justify-content: center;
+        text-align: center;
+    }
+    .search-loop{
+        top:73.5%;
+        left:56.5%;
+        
+        color: rgba($color: #5b72a8, $alpha: 0.5);
+        height: 30px;
+        position: absolute;
+        
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+    
+    
+    
+}
+@keyframes moveUp {
+    from {
+      // Set the starting position of the element
+      transform: translateY(0);
+    }
+    to {
+      // Set the ending position of the element
+      transform: translateY(-380px);
+    }
+  }
