@@ -46,7 +46,7 @@ font-size: 18px;
     top:calc(38%);
 }
 @media only screen and (min-width:778px){
-        .header{
+        .header,.header-step3{
     width: 100%;
     left:50%;
     align-items: center;
@@ -80,7 +80,7 @@ font-size: 18px;
             text-align: center;
                 }
 
-        .header-description {
+        .header-description,.header-description-step3 {
             top:calc(47%);
             font-weight: 400;
             width: 44%;
@@ -89,6 +89,10 @@ font-size: 18px;
             align-items: center;
             justify-content: center;
             text-align: center;
+                }
+                .header-description-step3{
+                    top:calc(40%);
+                    width: 28%;
                 }
                 
         

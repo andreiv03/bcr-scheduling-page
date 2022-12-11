@@ -62,7 +62,7 @@
             white-space: nowrap;
             
     }
-        .step-bar{
+        .step-bar,.step-bar-3{
             left: 41%;
             top:18.3%;
             width:18%;
@@ -90,6 +90,11 @@
             border-bottom-left-radius: 2px;
     
         }
+        .step-bar-3{
+            width:13%;
+            left:43.5%;
+        }
+        
         
     }
 
