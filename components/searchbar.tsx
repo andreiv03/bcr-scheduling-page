@@ -20,7 +20,7 @@ const SearchBar: React.FC = () => {
           onChange={show}
         />
       </div>
-<AiOutlineSearch className={styles["search-loop"]}/>
+      <AiOutlineSearch className={styles["search-loop"]} />
     </main>
   );
 };

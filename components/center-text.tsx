@@ -5,8 +5,8 @@ const CenterText: React.FC = () => {
     <main className={styles["title-message"]}>
       <p className={styles["header"]}>În ce locație ne vizitezi?</p>
       <p className={styles["header-description"]}>
-        Caută unitatea BCR unde programezi vizita sau permite accesul la localizare și alege o
-        unitate de lângă tine.
+        Caută unitatea BCR unde programezi vizita sau permite accesul la
+        localizare și alege o unitate de lângă tine.
       </p>
     </main>
   );
