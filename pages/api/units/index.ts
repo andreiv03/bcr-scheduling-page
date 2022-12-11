@@ -28,8 +28,8 @@ const GET = async (_req: NextApiRequest, res: NextApiResponse) => {
     // if (!ipstackData.latitude || !ipstackData.longitude)
     //   return res.status(404).json({ message: "Coordinates not found!" });
 
-    coordinates.currentLocation.latitude = 54;
-    coordinates.currentLocation.longitude = 24;
+    coordinates.currentLocation.latitude = 44.441130;
+    coordinates.currentLocation.longitude = 26.051998;
 
     const BCR_API_URI = "https://api.bcr.ro/api/v1/appointments/branches/";
     const { data: bcrData } = await axios.get(BCR_API_URI, {
@@ -53,12 +53,16 @@ const GET = async (_req: NextApiRequest, res: NextApiResponse) => {
         brn: unit.brn,
         distance: calculateDistance(coordinates).toFixed(2),
         mfm_euro_all_day: unit.mfm_euro_all_day ? unit.mfm_euro_all_day : false,
+        location: {
+          latitude: unit.location.latitude,
+          longitude: unit.location.longitude
+        }
       };
     });
 
     return res.status(200).json({
       units,
-      unitsByGeolocation: units.filter((unit: Unit) => unit.distance < 1),
+      unitsByGeolocation: units.filter((unit: Unit) => unit.distance < 2),
     });
   } catch (error: any) {
     return res.status(500).json({ message: error.message });

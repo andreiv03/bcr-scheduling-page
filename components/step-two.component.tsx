@@ -6,7 +6,7 @@ import type { Unit } from "interfaces/units";
 import axios from "utils/axios";
 
 import styles from "styles/components/step-two.module.scss";
-import Mapbox from "components/mapbox";
+import Mapbox from "components/mapbox.component";
 
 const UnitOption: React.FC<{
   onChangeUnit: (unit: Unit) => void;
@@ -25,7 +25,6 @@ const UnitOption: React.FC<{
         </div>
 
         <p>{unit.br_street}</p>
-        <p className={styles["green"]}>Disponibil de la 09:00, astăzi</p>
 
         <div className={styles["bottom_section"]}>
           {unit.mfm_euro_all_day && <h4>Self-service 24/7</h4>}
@@ -112,7 +111,7 @@ const StepTwo: React.FC<{
           id="input"
           onChange={(event) => setSearch(event.target.value)}
           onFocus={handleFirstAnimation}
-          placeholder={"Caută o unitate BCR"}
+          placeholder={"Nume unitate / Adresă / Zonă"}
           type="text"
           value={search}
         />
@@ -135,7 +134,7 @@ const StepTwo: React.FC<{
 
             {search.length < 3 && unitsByGeolocation.length
               ? unitsByGeolocation
-                  .slice(0, 2)
+                  .slice(0, seeMore ? unitsByGeolocation.length : 2)
                   .map((unit) => (
                     <UnitOption
                       key={uuidv4()}
@@ -158,7 +157,7 @@ const StepTwo: React.FC<{
               className={styles["see_more"]}
               onClick={() => setSeeMore(true)}
             >
-              Afișează toate rezultatele +{filterBySearch().length - 2}
+              Afișează toate rezultatele (+{filterBySearch().length - 2})
             </span>
           ) : null}
 
@@ -167,13 +166,13 @@ const StepTwo: React.FC<{
               className={styles["see_more"]}
               onClick={() => setSeeMore(true)}
             >
-              Afișează toate rezultatele +{unitsByGeolocation.length - 2}
+              Afișează toate rezultatele (+{unitsByGeolocation.length - 2})
             </span>
           ) : null}
         </div>
       )}
 
-      {isMapVisible && <Mapbox isMapVisible={[isMapVisible, setIsMapVisible]} />}
+      {isMapVisible && <Mapbox isMapVisible={[isMapVisible, setIsMapVisible]} unitsByGeolocation={unitsByGeolocation} />}
     </div>
   );
 };
