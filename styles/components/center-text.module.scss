@@ -50,6 +50,27 @@ font-size: 18px;
     border-left:25%;
     border-right:25%;
         }
+        .header-step1 {
+         
+    width: 100%;
+    left:50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    top: calc(28%);
+    font-size: 44px;
+    word-spacing: 0.5px;
+    border-left:25%;
+    border-right:25%;
+        }
+    .header-description-step1 {
+            top:calc(40%);
+            font-weight: 350;
+            width: 34%;
+            left: 50%;
+            font-size: 26px;
+            text-align: center;
+                }
 
         .header-description {
             top:calc(47%);

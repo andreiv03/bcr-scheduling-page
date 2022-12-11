@@ -44,6 +44,34 @@
 .option5{
     top:78%;
 }
+@media only screen and (min-width:778px){
+    .option,.option1,.option2,.option3,.option4,.option5{
+        width:15%;
+    }
+    .option,.option1,.option2{
+        left:33%;
+    }
+    .option3,.option4,.option5{
+        left:51%;
+    }
+    top:calc(48%);
+    .option,.option3{
+        top:54%;
+    }
+    .option1,.option4{
+        top:60%;
+    }
+    .option2,.option5{
+        top:66%;
+    }
+    .smart-button{
+    width: 191%;
+    height: 35px;
+    left: 93%;
+    top:86%;
+    
+    }
+}
 }    
 .smart-button{
     box-sizing: border-box;
@@ -56,4 +84,20 @@ top:86%;
 border-color: white;
 color: white;
 border-style:groove; 
+border-radius: 19px;
 }
+
+@media only screen and (min-width:778px){
+
+    .smart-button{
+        box-sizing: border-box;
+    
+    position: absolute;
+    width: 17%;
+    height: 50px;
+    justify-content: center;
+    left:41%;
+    top:calc(77%);
+    border-radius: 19px;
+    }
+    }

@@ -17,8 +17,8 @@ const Home = () => {
       {/*<CenterText />*/}
       <CenterTextStep1/>
       <OptionStep1/>
-      {/*<SearchBar />
-      <FooterLogo/>*/}
+      {/*<SearchBar />*/}
+      {<FooterLogo/>}
     </div>
   );
 };
