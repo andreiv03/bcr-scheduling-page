@@ -16,7 +16,12 @@ const StepFour: React.FC<{
           <label htmlFor="lastName">Numele de familie</label>
           <input
             id="lastName"
-            onChange={(event) => setFormData((prevState) => ({ ...prevState, [event.target.name]: event.target.value }))}
+            onChange={(event) =>
+              setFormData((prevState) => ({
+                ...prevState,
+                [event.target.name]: event.target.value,
+              }))
+            }
             name="lastName"
             type="text"
             value={formData.lastName}
@@ -27,7 +32,12 @@ const StepFour: React.FC<{
           <label htmlFor="firstName">Prenumele</label>
           <input
             id="firstName"
-            onChange={(event) => setFormData((prevState) => ({ ...prevState, [event.target.name]: event.target.value }))}
+            onChange={(event) =>
+              setFormData((prevState) => ({
+                ...prevState,
+                [event.target.name]: event.target.value,
+              }))
+            }
             name="firstName"
             type="text"
             value={formData.firstName}
@@ -38,7 +48,12 @@ const StepFour: React.FC<{
           <label htmlFor="email">Email</label>
           <input
             id="email"
-            onChange={(event) => setFormData((prevState) => ({ ...prevState, [event.target.name]: event.target.value }))}
+            onChange={(event) =>
+              setFormData((prevState) => ({
+                ...prevState,
+                [event.target.name]: event.target.value,
+              }))
+            }
             name="email"
             type="text"
             value={formData.email}

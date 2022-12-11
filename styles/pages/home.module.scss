@@ -3,6 +3,7 @@
   width: 100vw;
   background: linear-gradient(to top, #29417a 0%, #376ae2 44%);
   overflow: hidden;
+  padding-bottom: 5rem;
 
   .step {
     margin-top: 2.5rem;
@@ -28,5 +29,10 @@
         transition: 200ms ease;
       }
     }
+  }
+
+  .logo {
+    margin: 0 auto;
+    width: fit-content;
   }
 }

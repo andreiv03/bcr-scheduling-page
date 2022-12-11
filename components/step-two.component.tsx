@@ -17,7 +17,9 @@ const UnitOption: React.FC<{
     <div
       className={styles["unit"]}
       key={uuidv4()}
-      onClick={() => { onChangeUnit(unit), incrementStep() }}
+      onClick={() => {
+        onChangeUnit(unit), incrementStep();
+      }}
     >
       <div className={styles["content"]}>
         <div className={styles["top_section"]}>
@@ -125,6 +127,7 @@ const StepTwo: React.FC<{
             {search.length >= 3 && units.length
               ? filterBySearch()
                   .slice(0, seeMore ? filterBySearch().length : 2)
+                  .sort((a, b) => a.distance - b.distance)
                   .map((unit) => (
                     <UnitOption
                       key={uuidv4()}
@@ -138,6 +141,7 @@ const StepTwo: React.FC<{
             {search.length < 3 && unitsByGeolocation.length
               ? unitsByGeolocation
                   .slice(0, seeMore ? unitsByGeolocation.length : 2)
+                  .sort((a, b) => a.distance - b.distance)
                   .map((unit) => (
                     <UnitOption
                       key={uuidv4()}
@@ -149,9 +153,12 @@ const StepTwo: React.FC<{
               : null}
           </div>
 
-          {(search.length >= 3 && filterBySearch().length) || unitsByGeolocation.length ? (
+          {(search.length >= 3 && filterBySearch().length) ||
+          unitsByGeolocation.length ? (
             <button>
-              <span onClick={() => setIsMapVisible(true)}>Alege de pe hartă</span>
+              <span onClick={() => setIsMapVisible(true)}>
+                Alege de pe hartă
+              </span>
               <MdLocationPin />
             </button>
           ) : null}
@@ -176,7 +183,14 @@ const StepTwo: React.FC<{
         </div>
       )}
 
-      {isMapVisible && <Mapbox isMapVisible={[isMapVisible, setIsMapVisible]} unitsByGeolocation={unitsByGeolocation} />}
+      {isMapVisible && (
+        <Mapbox
+          isMapVisible={[isMapVisible, setIsMapVisible]}
+          unitsByGeolocation={unitsByGeolocation}
+          incrementStep={incrementStep}
+          onChangeUnit={onChangeUnit}
+        />
+      )}
     </div>
   );
 };

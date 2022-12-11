@@ -3,6 +3,7 @@ export interface Unit {
     isCashless: boolean;
   };
   br_street: string;
+  branchId: string;
   brn: string;
   distance: number;
   location: {

@@ -1,8 +1,14 @@
-.step_five {
+.confirmation {
   padding: 2.5rem 1.5rem;
   width: 100%;
   margin: 0 auto;
   transition: 300ms ease;
+
+  svg {
+    margin: 0 auto 1rem;
+    width: 200px;
+    display: block;
+  }
 
   .hero_section {
     margin-bottom: 2.5rem;
@@ -10,9 +16,10 @@
     flex-direction: column;
     gap: 0.5rem;
     transition: 300ms ease;
+    text-align: center;
 
     h1 {
-      font-size: 1.5rem;
+      font-size: 1.125rem;
       font-weight: 600;
     }
 
@@ -25,63 +32,28 @@
   & > button {
     border: 2px solid var(--background);
     padding: 0.5rem 1rem;
-    border-radius: 2rem;
+    border-radius: 0.5rem;
     font-size: 0.9rem;
     text-align: center;
     margin: 1.5rem auto 0;
     display: block;
     width: 200px;
+    font-weight: 500;
     cursor: pointer;
-  }
-
-  .summary {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-
-      .column {
-        h2 {
-          font-size: 1.125rem;
-          font-weight: 500;
-        }
-
-        h3 {
-          font-size: 1rem;
-          font-weight: 400;
-          opacity: 0.75;
-        }
-
-        h4 {
-          font-size: 0.9rem;
-          font-weight: 400;
-        }
-      }
-
-      svg {
-        font-size: 1.5rem;
-        min-width: 2rem;
-      }
-    }
   }
 }
 
 @media screen and (min-width: 475px) {
-  .step_five {
+  .confirmation {
     max-width: 600px;
 
     .hero_section {
       text-align: center;
-      gap: 1rem;
+      gap: 1.5rem;
 
       h1 {
         font-size: 2rem;
-        font-weight: 700;
+        font-weight: 600;
       }
 
       p {
