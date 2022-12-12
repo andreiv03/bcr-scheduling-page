@@ -28,7 +28,6 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "format": "npx prettier -w **/*.ts **/*.tsx",
     "lint": "next lint",
     "start": "next start"
   }

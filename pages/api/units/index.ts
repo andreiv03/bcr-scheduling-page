@@ -10,18 +10,17 @@ const GET = async (_req: NextApiRequest, res: NextApiResponse) => {
     const coordinates = {
       currentLocation: {
         latitude: 0,
-        longitude: 0,
+        longitude: 0
       },
       destination: {
         latitude: 0,
-        longitude: 0,
-      },
+        longitude: 0
+      }
     };
 
     const IPAPI_API_URI = "https://ipapi.co/json/";
     const { data: ipapiData } = await axios.get(IPAPI_API_URI);
-    if (!ipapiData.ip)
-      return res.status(404).json({ message: "IP Address not found!" });
+    if (!ipapiData.ip) return res.status(404).json({ message: "IP Address not found!" });
 
     const IPSTACK_API_URI = `http://api.ipstack.com/${ipapiData.ip}?access_key=${constants.IPSTACK_API_KEY}`;
     const { data: ipstackData } = await axios.get(IPSTACK_API_URI);
@@ -34,8 +33,8 @@ const GET = async (_req: NextApiRequest, res: NextApiResponse) => {
     const BCR_API_URI = "https://api.bcr.ro/api/v1/appointments/branches/";
     const { data: bcrData } = await axios.get(BCR_API_URI, {
       headers: {
-        apiKey: constants.BCR_API_KEY,
-      },
+        apiKey: constants.BCR_API_KEY
+      }
     });
 
     if (bcrData.replyStatus.status !== "OK")
@@ -47,7 +46,7 @@ const GET = async (_req: NextApiRequest, res: NextApiResponse) => {
 
       return {
         appointmentsSchedule: {
-          isCashless: unit.appointmentsSchedule.isCashless,
+          isCashless: unit.appointmentsSchedule.isCashless
         },
         br_street: unit.br_street,
         branchId: unit.branchId,
@@ -56,8 +55,8 @@ const GET = async (_req: NextApiRequest, res: NextApiResponse) => {
         mfm_euro_all_day: unit.mfm_euro_all_day ? unit.mfm_euro_all_day : false,
         location: {
           latitude: unit.location.latitude,
-          longitude: unit.location.longitude,
-        },
+          longitude: unit.location.longitude
+        }
       };
     });
 
@@ -65,7 +64,7 @@ const GET = async (_req: NextApiRequest, res: NextApiResponse) => {
       units,
       unitsByGeolocation: units
         .filter((unit: Unit) => unit.distance < 2)
-        .sort((a: Unit, b: Unit) => a.distance - b.distance),
+        .sort((a: Unit, b: Unit) => a.distance - b.distance)
     });
   } catch (error: any) {
     return res.status(500).json({ message: error.message });

@@ -11,8 +11,8 @@ const GET = async (req: NextApiRequest, res: NextApiResponse) => {
     const BCR_API_URI = `https://api.bcr.ro/api/v1/appointments/availableTime?operationId=1&branchId=318`;
     const { data: bcrData } = await axios.get(BCR_API_URI, {
       headers: {
-        apiKey: constants.BCR_API_KEY,
-      },
+        apiKey: constants.BCR_API_KEY
+      }
     });
 
     const availableTimeList = bcrData.serviceResponse.availableTimeList[0];

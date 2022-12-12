@@ -9,10 +9,7 @@ interface CalculateDistance {
   };
 }
 
-export const calculateDistance = ({
-  currentLocation,
-  destination,
-}: CalculateDistance) => {
+export const calculateDistance = ({ currentLocation, destination }: CalculateDistance) => {
   const EARTH_RADIUS = 6371;
 
   const getRadians = (degrees: number) => (degrees * Math.PI) / 180;
