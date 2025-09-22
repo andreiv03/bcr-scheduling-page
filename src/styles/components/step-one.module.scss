@@ -1,0 +1,96 @@
+.step_one {
+	width: 100%;
+	margin: 0 auto;
+	padding: 2.5rem 1.5rem;
+	transition: 300ms ease;
+
+	.hero_section {
+		margin-bottom: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		transition: 300ms ease;
+
+		h1 {
+			font-size: 1.5rem;
+			font-weight: 600;
+		}
+
+		& > p {
+			font-size: 1rem;
+			font-weight: 400;
+		}
+	}
+
+	& > button {
+		width: 200px;
+		margin: 1.5rem auto 0;
+		padding: 0.5rem 1rem;
+		border: 2px solid var(--background);
+		border-radius: 2rem;
+		font-size: 0.9rem;
+		text-align: center;
+		display: block;
+		cursor: pointer;
+	}
+
+	.status,
+	.error {
+		margin-top: 1.25rem;
+		font-size: 0.9rem;
+		text-align: center;
+	}
+
+	.operations {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+
+		.operation {
+			padding: 0.5rem 1rem;
+			border: 2px solid var(--background);
+			border-radius: 0.5rem;
+			background-color: transparent;
+			color: var(--background);
+			font-size: 0.9rem;
+			text-align: center;
+			transition: 200ms ease;
+			cursor: pointer;
+
+			&:hover {
+				background-color: var(--foreground);
+			}
+
+			&.checked {
+				border-color: var(--background);
+				background-color: var(--background);
+				color: var(--foreground);
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 475px) {
+	.step_one {
+		max-width: 600px;
+
+		.hero_section {
+			text-align: center;
+			gap: 1rem;
+
+			h1 {
+				font-size: 2rem;
+				font-weight: 700;
+			}
+
+			p {
+				font-size: 1.25rem;
+			}
+		}
+
+		.options {
+			margin: 0 auto;
+			max-width: 375px;
+		}
+	}
+}

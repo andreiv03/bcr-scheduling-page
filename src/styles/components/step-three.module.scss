@@ -1,0 +1,153 @@
+.step_three {
+	width: 100%;
+	margin: 0 auto;
+	padding: 2.5rem 1.5rem;
+	transition: 300ms ease;
+
+	.hero_section {
+		margin-bottom: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		transition: 300ms ease;
+
+		h1 {
+			font-size: 1.5rem;
+			font-weight: 600;
+		}
+
+		& > p {
+			font-size: 1rem;
+			font-weight: 400;
+		}
+	}
+
+	& > button {
+		width: 200px;
+		margin: 1.5rem auto 0;
+		padding: 0.5rem 1rem;
+		border: 2px solid var(--background);
+		border-radius: 2rem;
+		font-size: 0.9rem;
+		text-align: center;
+		display: block;
+		cursor: pointer;
+	}
+
+	.calendar {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		z-index: 20;
+		transform: translate(-50%, -50%);
+		padding: 2rem;
+		border-radius: 1rem;
+		background: var(--foreground);
+		opacity: 0;
+		visibility: hidden;
+		transition: 200ms ease;
+
+		&.visible {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 19;
+		background-color: var(--foreground);
+		opacity: 0;
+		visibility: hidden;
+		transition: 200ms ease;
+
+		&.visible {
+			opacity: 0.5;
+			visibility: visible;
+		}
+	}
+
+	.row {
+		&:not(:last-child) {
+			margin-bottom: 1.5rem;
+
+			.option {
+				border-color: var(--background);
+				background-color: var(--background);
+				color: var(--foreground);
+
+				&:hover {
+					background-color: #dedede;
+				}
+			}
+		}
+
+		h3 {
+			margin-bottom: 0.5rem;
+			font-size: 0.9rem;
+			font-weight: 500;
+			display: block;
+		}
+
+		span {
+			margin-top: 0.5rem;
+			font-size: 0.9rem;
+			font-weight: 400;
+			display: block;
+		}
+
+		.option {
+			padding: 0.5rem 1rem;
+			border: 2px solid var(--background);
+			border-radius: 2rem;
+			background-color: transparent;
+			color: var(--background);
+			font-size: 0.9rem;
+			text-align: center;
+			cursor: pointer;
+			transition: 200ms ease;
+
+			&:not(:last-child) {
+				margin-bottom: 0.5rem;
+			}
+
+			&:hover {
+				background-color: var(--foreground);
+			}
+
+			&.checked {
+				border-color: var(--background);
+				background-color: var(--background);
+				color: var(--foreground);
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 475px) {
+	.step_three {
+		max-width: 600px;
+
+		.hero_section {
+			text-align: center;
+			gap: 1rem;
+
+			h1 {
+				font-size: 2rem;
+				font-weight: 700;
+			}
+
+			p {
+				font-size: 1.25rem;
+			}
+		}
+		.row {
+			max-width: 475px;
+			margin: 0 auto;
+		}
+	}
+}
