@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { DayPicker } from "react-day-picker";
+import { DayPicker, UI } from "react-day-picker";
 import "react-day-picker/dist/style.css";
-import { format } from "date-fns";
+import { format, isSameDay } from "date-fns";
+import { ro } from "date-fns/locale";
 
 import axios from "@/config/axios";
 import { LayoutContext } from "@/contexts/layout-context";
@@ -24,7 +25,7 @@ export default function StepThree() {
 	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
-		if (!date || !state.unit) {
+		if (!date) {
 			return;
 		}
 
@@ -33,14 +34,24 @@ export default function StepThree() {
 				setLoading(true);
 				setError(null);
 
-				const { data } = await axios.get<TimeSlot[]>(
-					`/api/units/${encodeURIComponent(String(state.unit?.branchId))}`,
-					{ params: { date: date.toISOString().slice(0, 10) } },
+				const queries = new URLSearchParams({
+					operationId: state.operation?.id.toString() || "1",
+					branchId: state.unit?.branchId || "",
+					date: format(date, "yyyy-MM-dd'T'HH:mm:ss.SSS"),
+				});
+
+				const { data } = await axios.get<{ timeSlots: TimeSlot[] }>(
+					`/api/time-slots?${queries.toString()}`,
 				);
 
-				console.log(data);
+				setTimeSlots(Array.isArray(data.timeSlots) ? data.timeSlots : []);
 
-				setTimeSlots(Array.isArray(data) ? data : []);
+				if (date && data.timeSlots.length > 0) {
+					const first = new Date(data.timeSlots?.[0]?.dateTimeStart ?? "");
+					if (!isSameDay(first, date)) {
+						setTimeSlots([]);
+					}
+				}
 			} catch {
 				setError("A apărut o eroare la încărcarea intervalelor.");
 				setTimeSlots([]);
@@ -48,13 +59,8 @@ export default function StepThree() {
 				setLoading(false);
 			}
 		})();
-	}, [date, state.unit]);
+	}, [date, state.operation?.id, state.unit?.branchId]);
 
-	// Build a stable key for each slot and selection check by key (not by object reference)
-	const slotKey = (s: TimeSlot) => `${s.dateTimeStart}|${s.dateTimeEnd}`;
-	const selectedKey = state.timeSlot ? slotKey(state.timeSlot) : null;
-
-	// Derived pretty date text
 	const dateLabel = useMemo(() => (date ? format(date, "PP") : "Alege data"), [date]);
 
 	return (
@@ -66,15 +72,21 @@ export default function StepThree() {
 
 			<div className={`${styles["calendar"]} ${isCalendarVisible ? styles["visible"] : ""}`}>
 				<DayPicker
+					classNames={{
+						[UI.Chevron]: "rdp_chevron",
+						[UI.Day]: "rdp_day",
+					}}
 					disabled={[{ before: new Date() }, { dayOfWeek: [0, 6] }]}
+					locale={{ ...ro, options: { ...ro.options, weekStartsOn: 1 } }}
 					mode="single"
+					navLayout="around"
 					onSelect={(date) => {
-						setDate(date);
+						setDate(date ?? undefined);
 						setIsCalendarVisible(false);
+						setTimeSlots([]);
 						setTimeSlot(null);
 					}}
 					selected={date}
-					showOutsideDays
 				/>
 			</div>
 
@@ -101,17 +113,17 @@ export default function StepThree() {
 				)}
 
 				{!loading && !error && timeSlots.length > 0 && (
-					<div className={styles["slot_list"]}>
-						{timeSlots.map((slot) => {
-							const key = slotKey(slot);
-							const isSelected = selectedKey === key;
+					<div className={styles["options"]}>
+						{timeSlots.map((slot, index) => {
+							const selected = state.timeSlot === slot;
 							const start = format(new Date(slot.dateTimeStart), "HH:mm");
 							const end = format(new Date(slot.dateTimeEnd), "HH:mm");
+
 							return (
 								<button
-									className={`${styles["option"]} ${isSelected ? styles["checked"] : ""}`}
-									key={key}
-									onClick={() => setTimeSlot(isSelected ? null : slot)}
+									className={`${styles["option"]} ${selected ? styles["checked"] : ""}`}
+									key={index}
+									onClick={() => setTimeSlot(selected ? null : slot)}
 								>
 									{start} - {end}
 								</button>

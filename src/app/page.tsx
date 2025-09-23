@@ -31,24 +31,6 @@ const STEPS_LABEL: Record<Exclude<Step, 6>, string> = {
 export default function Home() {
 	const { state } = useContextHook(LayoutContext);
 
-	// const [reasons, setReasons] = useState<string[]>([]);
-	// const [selectedUnit, setSelectedUnit] = useState<Unit | null>(null);
-	// const [selectedTime, setSelectedTime] = useState<TimeSlot | null>(null);
-	// const [formData, setFormData] = useState<FormData>(initialForm);
-
-	// Validation rules, co-located and readable
-	// const canAdvance = useCallback(
-	// 	(step: Step) => {
-	// 		if (step === 1) return reasons.length > 0;
-	// 		if (step === 2) return !!selectedUnit;
-	// 		if (step === 3) return !!selectedTime;
-	// 		if (step === 4) return Boolean(formData.firstName && formData.lastName && formData.email);
-	// 		if (step === 5) return true; // confirm screen goes -> 6
-	// 		return false;
-	// 	},
-	// 	[reasons.length, selectedUnit, selectedTime, formData],
-	// );
-
 	const stepLabel = (STEPS_LABEL as Record<number, string | undefined>)[state.step] ?? "";
 
 	const progressPercentage = useMemo(() => {
@@ -85,7 +67,7 @@ export default function Home() {
 					{state.step === 2 && <StepTwo />}
 					{state.step === 3 && <StepThree />}
 					{state.step === 4 && <StepFour />}
-					{state.step === 5 && state.unit && state.timeSlot && <StepFive />}
+					{state.step === 5 && <StepFive />}
 					{state.step === 6 && <Confirmation />}
 				</motion.div>
 			</AnimatePresence>

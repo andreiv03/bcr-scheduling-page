@@ -31,6 +31,7 @@ export default function StepOne() {
 				setOperations(Array.isArray(data.operations) ? data.operations : []);
 			} catch {
 				setError("A apărut o eroare la încărcarea operațiunilor.");
+				setOperations([]);
 			} finally {
 				setLoading(false);
 			}

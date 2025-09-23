@@ -11,6 +11,7 @@ import type { Unit } from "@/types/unit";
 
 import Mapbox from "@/components/mapbox";
 import styles from "@/styles/components/step-two.module.scss";
+import { AnimatePresence, motion } from "framer-motion";
 
 function UnitComponent({ unit }: { unit: Unit }) {
 	const { setStep, setUnit } = useContextHook(LayoutContext);
@@ -40,8 +41,6 @@ function UnitComponent({ unit }: { unit: Unit }) {
 }
 
 export default function StepTwo() {
-	const { setStep, setUnit } = useContextHook(LayoutContext);
-
 	const heroSectionRef = useRef<HTMLDivElement>(null);
 
 	const [isHeroSectionHidden, setIsHeroSectionHidden] = useState(false);
@@ -141,7 +140,6 @@ export default function StepTwo() {
 					unitate de lângă tine.
 				</p>
 			</div>
-
 			<div className={styles["input_container"]}>
 				<label htmlFor="search">Caută unitatea</label>
 				<input
@@ -155,10 +153,8 @@ export default function StepTwo() {
 					value={search}
 				/>
 			</div>
-
 			{loading && <div className={styles["status"]}>Se încarcă unitățile...</div>}
 			{error && !loading && <div className={styles["error"]}>{error}</div>}
-
 			{!loading && !error && (
 				<div className={styles["units"]}>
 					<div className={styles["content"]}>
@@ -182,14 +178,18 @@ export default function StepTwo() {
 				</div>
 			)}
 
-			{isMapVisible && (
-				<Mapbox
-					isMapVisible={[isMapVisible, setIsMapVisible]}
-					unitsByGeolocation={units}
-					incrementStep={() => setStep(3)}
-					onChangeUnit={setUnit}
-				/>
-			)}
+			<AnimatePresence mode="wait">
+				{isMapVisible && (
+					<motion.div
+						className={styles["map"]}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1, transition: { delay: 0.3, duration: 0.2 } }}
+						exit={{ opacity: 0, transition: { duration: 0.2 } }}
+					>
+						<Mapbox units={units} setIsMapVisible={setIsMapVisible} />
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 }

@@ -4,7 +4,6 @@
 
 	--accent: #376ae2;
 	--light-accent: #5c7999;
-	--green: #10c76b;
 }
 
 *,
@@ -36,7 +35,7 @@ a {
 	text-decoration: none;
 }
 
-body {
+html {
 	overflow-x: hidden;
 	scrollbar-width: none;
 
@@ -45,15 +44,23 @@ body {
 	}
 }
 
-.rdp {
-	--rdp-cell-size: 2rem;
-	--rdp-accent-color: var(--accent);
-	--rdp-background-color: var(--accent);
-	/* Switch to dark colors for dark themes */
-	--rdp-accent-color-dark: var(--accent);
-	--rdp-background-color-dark: #180270;
-	/* Outline border for focused elements */
-	--rdp-outline: 2px solid var(--rdp-accent-color);
-	/* Outline border for focused and selected elements */
-	--rdp-outline-selected: 2px solid rgba(0, 0, 0, 0.75);
+.rdp_chevron {
+	fill: var(--background);
+	display: inline-block;
+}
+
+.rdp_day {
+	width: var(--rdp-day-width);
+	height: var(--rdp-day-height);
+	text-align: center;
+
+	&.rdp-today {
+		color: var(--background) !important;
+	}
+
+	&.rdp-selected {
+		.rdp-day_button {
+			border-color: var(--background);
+		}
+	}
 }

@@ -100,6 +100,12 @@
 			display: block;
 		}
 
+		.options {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+
 		.option {
 			padding: 0.5rem 1rem;
 			border: 2px solid var(--background);
@@ -110,10 +116,6 @@
 			text-align: center;
 			cursor: pointer;
 			transition: 200ms ease;
-
-			&:not(:last-child) {
-				margin-bottom: 0.5rem;
-			}
 
 			&:hover {
 				background-color: var(--foreground);

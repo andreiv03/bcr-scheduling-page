@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { ENV } from "@/config/constants";
 import type { Unit } from "@/types/unit";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 
 interface BCR {
 	replyStatus: {

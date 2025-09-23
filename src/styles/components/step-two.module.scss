@@ -66,6 +66,11 @@
 		.content {
 			max-height: 275px;
 			overflow-y: auto;
+			scrollbar-width: none;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
 
 			.unit {
 				padding: 1rem 1.25rem;
@@ -103,10 +108,6 @@
 					color: var(--light-accent);
 					font-size: 0.9rem;
 					font-weight: 400;
-
-					&.green {
-						color: var(--green);
-					}
 				}
 
 				.bottom_section {
@@ -171,6 +172,123 @@
 
 		svg {
 			font-size: 1.25rem;
+		}
+	}
+
+	.wrapper {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 10;
+		background-color: var(--background);
+
+		.map_container {
+			width: 100%;
+			height: 100%;
+		}
+
+		button {
+			position: fixed;
+			top: 1.25rem;
+			left: 1.25rem;
+			z-index: 1;
+			padding: 0.5rem 1rem;
+			border-radius: 0.5rem;
+			background-color: var(--accent);
+			color: var(--background);
+			font-weight: 500;
+			font-size: 0.7rem;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+	}
+
+	.current_unit {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 30;
+		transform: translateY(calc(100% + 3rem));
+		padding: 1rem 1.25rem;
+		background-color: var(--background);
+		transition: 200ms ease;
+
+		&.visible {
+			transform: translateY(0);
+		}
+
+		&:hover {
+			background-color: var(--background);
+		}
+
+		button {
+			position: absolute;
+			top: -3rem;
+			right: 0;
+			left: 0;
+			height: 3rem;
+			border-radius: 0.5rem 0.5rem 0 0;
+			background-color: var(--accent);
+			color: var(--background);
+			font-size: 1rem;
+			font-weight: 400;
+			text-align: center;
+			cursor: pointer;
+		}
+
+		.top_section {
+			color: var(--foreground);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			h3 {
+				font-size: 1rem;
+				font-weight: 600;
+			}
+
+			h5 {
+				font-size: 0.75rem;
+				font-weight: 500;
+			}
+		}
+
+		p {
+			margin: 0.2rem 0;
+			color: var(--light-accent);
+			font-size: 0.9rem;
+			font-weight: 400;
+		}
+
+		.bottom_section {
+			display: flex;
+
+			h4 {
+				position: relative;
+				color: var(--accent);
+				font-size: 0.75rem;
+				font-weight: 500;
+
+				&:not(:last-child) {
+					margin-right: 1.6rem;
+
+					&::after {
+						content: "";
+						position: absolute;
+						top: 50%;
+						right: -1rem;
+						transform: translateY(-50%);
+						width: 0.3rem;
+						height: 0.3rem;
+						border-radius: 50%;
+						background-color: var(--accent);
+					}
+				}
+			}
 		}
 	}
 }
